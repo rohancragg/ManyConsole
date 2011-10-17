@@ -64,12 +64,27 @@ namespace MC.AX.DataUtility
             Argument2 = remainingArguments[1];
         }
 
+<<<<<<< HEAD
+        private void ParseNullableInt(string sInt)
+        {
+            int intOut;
+            if (int.TryParse(sInt, out intOut))
+            {
+                OptionalInt = intOut;
+            }
+            else
+            {
+                throw new ConsoleHelpAsException(string.Format(@"Invalid value entered for OptionalInt, must be a valid integer. Value entered was ""{0}"".", sInt));
+            }
+        }
 
+=======
+>>>>>>> b2626ec52e9302ac8c41648a6f88acaf4d816747
         public override int Run()
         {
             Console.WriteLine(@"Called Example command - Argument1 = ""{0}"" Argument2 = ""{1}"" BooleanOption: {2}", Argument1, Argument2, BooleanOption);
 
-            OptionalArgumentList.ForEach((item) => Console.WriteLine(@"List Item {0} = ""{1}""", OptionalArgumentList.IndexOf(item), item));
+            if (OptionalArgumentList != null) OptionalArgumentList.ForEach((item) => Console.WriteLine(@"List Item {0} = ""{1}""", OptionalArgumentList.IndexOf(item), item));
 
             return 0;
         }
